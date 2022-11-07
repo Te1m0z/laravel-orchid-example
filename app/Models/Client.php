@@ -32,4 +32,10 @@ class Client extends Model
     protected array $allowedFilters = [
         'phone'
     ];
+
+
+    public function setPhoneAttribute($phone)
+    {
+        $this->attributes['phone'] = preg_replace('/[^0-9+]/', '', $phone);
+    }
 }
